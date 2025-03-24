@@ -1,0 +1,81 @@
+/*-------------------------------------------------------------
+Template Name: Bixol
+Template URL: 
+Author Name: ThemexRiver
+Author URL: https://themeforest.net/user/themexriver/portfolio
+Version: 1.0
+Description: 
+Tags: cleaning html template
+Text Domain: bixol
+-------------------------------------------------------------*/ 
+
+/*------------------------------------------------------------- 
+TABLE OF CONTENTS: 
+---------------------------------------------------------------
+>> Variable
+>> Mixin
+>> Navbar
+>> Header
+>> Footer
+>> Breadcrumb
+>> Slider 
+>> Preloader
+>> Theme
+>> Typography
+>> Animation
+>> Home-1
+>> About
+>> Services
+>> Portfolio
+>> Contact
+>> 404
+>> Ciming Soon
+>> FAQ
+>> Blog
+>> Blog Details
+>> Home-2
+>> Home-3
+>> Home-4
+>> Home-5
+>> Home-6
+>> Home-7
+--------------------------------------------------------------*/
+
+// Setting
+@import 'settings/variable';
+@import 'settings/mixin';
+
+// Layout
+@import 'layout/navbar';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/breadcrumb';
+@import 'layout/slider';
+
+
+// Theme 
+@import 'theme/preloader';
+@import 'theme/theme'; 
+@import 'theme/typography';
+@import 'theme/animation';
+
+//Pages 
+@import 'pages/home-1';
+@import 'pages/about';
+@import 'pages/services';
+@import 'pages/portfolio';
+@import 'pages/contact';
+@import 'pages/404';
+@import 'pages/coming-soon';
+@import 'pages/faq';
+@import 'pages/blog';
+@import 'pages/blog-details';
+
+@import 'pages/home-2';
+@import 'pages/home-3';
+@import 'pages/home-4';
+@import 'pages/home-5';
+@import 'pages/home-6';
+@import 'pages/home-7'; 
+
+

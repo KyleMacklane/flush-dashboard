@@ -1,0 +1,146 @@
+/* Author CSS */
+body {
+	margin: 0;
+	color: $paragraph-color;
+	font-family: $template-font;
+    font-size: 16px;
+}
+
+h1 {
+    color: $heading-color;
+    font-size: 70px;
+}
+
+h2 {
+    color: $heading-color;
+    font-size: 48px;
+}
+
+h3 {
+    color: $heading-color;
+    font-size: 36px;
+}
+
+h4 {
+    color: $heading-color;
+    font-size: 25px;
+}
+
+h5 {
+    color: $heading-color;
+    font-size: 22px;
+}
+
+h6 {
+    color: $heading-color;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-font;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+p {
+	color: $paragraph-color;
+	margin-bottom: 0;
+}
+
+.h4-headline {
+    h1,
+    h2,
+    h3,
+    h4, 
+    h5,
+    h6 {
+        color: $black-color;
+        text-transform: initial;
+    }
+}
+.h6-headline {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $home6-heading-color;
+    }
+}
+.h6-pera-txt {
+    p {
+        color: $home6-paragraph;
+    }
+}
+.h4-pera-txt {
+    p {
+        color: $h4-paragraph;
+    }
+}
+
+.h5-pera-txt {
+    p {
+        color: $h5-peragraph;
+    }
+}
+
+.h7-headline {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $black-color;
+        text-transform: initial;
+    }
+}
+.h7-pera-txt {
+    p {
+        color: $h4-paragraph;
+    }
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus,
+.slick-slide {
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+section {
+    overflow: hidden;
+}
+i {
+    display: inline-block;
+}

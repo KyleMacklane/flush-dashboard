@@ -1,0 +1,140 @@
+.coming-soon {
+    background-size: cover; 
+    background-repeat: no-repeat;
+    ul.countdown {
+        text-align: center;
+    }
+    ul.countdown li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+    ul.countdown li span {
+        font-size: 55px;
+        font-family: $heading-font; 
+        font-weight: 700;
+        color: $heading-color;
+    }
+    ul.countdown li p {
+        font-size: 24px;
+        color: $heading-color;
+        font-weight: 500;
+    }
+    ul.countdown li.seperator {
+        font-size: 48px;
+        line-height: 65px;
+        vertical-align: top;
+    }
+    ul.countdown li p {
+        text-transform: capitalize;
+    }
+    .title-txt {
+        text-align: center;
+        margin-top: 60px;
+        span {
+            font-size: 55px;
+        }
+    }
+    .pera-txt {
+        text-align: center; 
+        margin-top: 20px;
+        p {
+            color: #526088;
+            font-size: 20px;
+        }
+    }
+    .subscribe-form {
+        text-align: center;
+        max-width: 450px;
+        margin: 0 auto;
+        margin-top: 30px;
+        form {
+            position: relative;
+            width: 100%;
+            input {
+                width: 100%;
+                background-color: #eef2f7;
+                border: 0; 
+                border-radius: 30px; 
+                padding: 10px 30px;
+            }
+            button {
+                position: absolute; 
+                top: 50%; 
+                right: 0;
+                transform: translateY(-50%);
+                padding: 10px 30px; 
+                border: 0; 
+                border-radius: 0px 30px 30px 0;
+                background-color: $secondary-color;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: $white-color;
+            }
+        }
+    }
+    .social-info {
+        text-align: center;
+        margin-top: 60px;
+        a {
+            width: 40px; 
+            height: 40px; 
+            background-color: $primary-color;
+            display: inline-flex;
+            align-items: center; 
+            justify-content: center;
+            border-radius: 50%; 
+            color: $white-color;
+            transition: $transition;
+            &:hover {
+                transform: translateY(-3px);
+            }
+            &.facebook {
+                background-color: $facebook;
+            }
+            &.twitter {
+                background-color: $twitter;
+            }
+            &.instagram {
+                background-color: $instagram;
+            }
+            &.linkedin {
+                background-color: $linkedin;
+            }
+            + a {
+                margin-left: 10px;
+            }
+        }
+    }
+    @include medium-screen {
+        .title-txt {
+            span {
+                font-size: 36px;
+            }
+        }
+        .pera-txt {
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+    @include portrait-phone {
+        .title-txt {
+            span {
+                font-size: 30px;
+            }
+        }
+        .pera-txt {
+            p {
+                font-size: 16px;
+            }
+        }
+        .subscribe-form {
+            form {
+                input, 
+                button {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

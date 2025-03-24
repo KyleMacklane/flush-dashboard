@@ -1,0 +1,183 @@
+/***************** Contact Page *****************/ 
+.contact-v2 {
+    background-color: #f4f8fd;
+    .contact-v2-left {
+        .contact-v2-list {
+            margin-top: 30px;
+            .contact-v2-item {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                border: 1px solid $border-color;
+                padding: 30px;
+                transition: $transition;
+                margin-bottom: 30px;
+                .bixol-icon-wrapper {
+                    i {
+                        font-size: 36px;
+                        color: $secondary-color;
+                    }
+                }
+                .column-content {
+                    h5 {
+                        margin-bottom: 5px;
+                    }
+                }
+                &:hover {
+                    box-shadow: $box-shadow;
+                }
+            }
+        }
+        @include medium-screen {
+            .bixol-title-area {
+                text-align: center; 
+                padding: 0 30px;
+            }
+            .contact-left-img {
+                text-align: center; 
+                img {
+                    width: auto; 
+                    max-width: 100%;
+                    display: inline-block;
+                }
+            }
+        }
+        @include small-screen {
+            .contact-v2-list {
+                .contact-v2-item {
+                    max-width: 370px; 
+                    margin-left: auto; 
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+    .contact-v2-right {
+        p {
+            font-family: $heading-font; 
+            font-size: 14px; 
+            font-weight: 400;
+            color: $black-color;
+        }
+        form {
+            width: 100%;
+            margin-top: 20px;
+            input, 
+            select, 
+            textarea {
+                width: 100%;
+                border: 0;
+                padding: 12px 20px;
+                background-color: $white-color;
+                margin-bottom: 30px;
+                border-radius: 3px;
+                font-family: $heading-font;
+                font-size: 14px;
+                &::placeholder {
+                    color: #656565;
+                }
+            }
+            label {
+                font-family: $heading-font; 
+                color: $black-color;
+                margin-bottom: 8px;
+                font-size: 15px;
+            }
+            .submit-btn {
+                margin-top: 30px;
+                button {
+                    width: 212px; 
+                    height: 50px; 
+                    text-align: center; 
+                    line-height: 50px;
+                    background-color: $secondary-color; 
+                    border: 0;
+                    border-radius: 3px;
+                    color: $white-color;
+                    font-family: $heading-font; 
+                    font-weight: 700; 
+                    font-size: 15px;
+                    transition: $transition;
+                    i {
+                        margin-right: 10px;
+                    }
+                    &:hover {
+                        background-color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.contact-v3 {
+    .contact-v2-left {
+        .contact-left-img {
+            margin-top: 60px;
+        }
+    }
+    .contact-v2-right {
+        padding-bottom: 30px;
+        form {
+            input, 
+            select, 
+            textarea {
+                margin-bottom: 20px;
+            }
+            .submit-btn {
+                margin-top: 0;
+                button {
+                    width: 100%;
+                }
+            }
+        }
+        
+    }
+}
+
+.contact-v3-info-content {
+    background-color: #f4f8fd;
+    .info-content {
+        padding: 0 100px;
+        .info-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            .icon-wrapper {
+                i {
+                    color: $secondary-color;
+                    font-size: 40px;
+                    transform: translateY(8px);
+                }
+            }
+            .item-content {
+                h4 {
+                    margin-bottom: 6px;
+                    font-size: 24px;
+                    text-transform: initial;
+                }
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+        @include medium-screen {
+            padding: 0;
+            .info-item {
+                display: block;
+                text-align: center;
+                .icon-wrapper {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        @include small-screen {
+            .info-item {
+                max-width: 300px;
+                margin-left: auto; 
+                margin-right: auto;
+            }
+        }
+    }
+}

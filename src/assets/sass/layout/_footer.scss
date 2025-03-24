@@ -1,0 +1,402 @@
+/* Footer Section */
+
+/************** Footer 1 ***********************/ 
+.bixol-footer {
+    background-size: cover; 
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 160px 0 0px 0;
+    .bixol-footer-logo {
+        position: absolute; 
+        width: 130px;
+        top: -60px; 
+        left: 50%; 
+        transform: translateX(-50%);
+        display: inline-block;
+        box-shadow: $box-shadow;
+        border-radius: 50%;
+        z-index: 2;
+    }
+    .bixol-footer-widget {
+        margin-bottom: 60px;
+        h4 {
+            color: $white-color;
+            text-transform: initial;
+            margin-bottom: 30px;
+            span {
+                color: $secondary-color; 
+            }
+        }
+        p {
+            color: #c2d5e7;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .footer-office-time {
+            margin-top: 20px;
+            h6 {
+                font-size: 15px;
+                color: $white-color;
+                margin-bottom: 10px;
+            }
+            span {
+                display: block;
+                color: #c2d5e7;
+                font-size: 14px;
+            }
+        }
+        .bixol-footer-form {
+            margin-top: 20px; 
+            form {
+                width: 100%; 
+                position: relative; 
+                input[type='email'] {
+                    width: 100%; 
+                    padding: 15px 30px;
+                    border: 0;
+                    background-color: #1c2d60; 
+                    color: $white-color; 
+                    font-size: 14px;
+                    &::placeholder {
+                        color: $white-color;
+                    }
+                }
+                button {
+                    position: absolute;
+                    top: 0; 
+                    right: 0;
+                    width: 60px; 
+                    height: 100%;
+                    border: 0; 
+                    background-color: $secondary-color;
+                    color: $white-color;
+                    font-size: 14px;
+                    &:hover {
+                        i {
+                            animation: 0.3s movingright; 
+                        }
+                    }
+                }
+            }
+        }
+        .bixol-footer-social {
+            margin-top: 20px;
+            a {
+                margin-right: 15px;
+                transition: $transition; 
+                display: inline-block;
+                &.facebook {
+                    color: $facebook;
+                }
+                &.twitter {
+                    color: $twitter;
+                }
+                &.dribbble {
+                    color: $dribbble;
+                }
+                &.behance {
+                    color: $behance;
+                }
+                &:hover {
+                    transform: translateY(-6px);
+                }
+            }
+        }
+        .bixol-footer-address {
+            ul {
+                li {
+                    display: flex; 
+                    gap: 12px;
+                    align-items: center;
+                    color: #c2d5e7;
+                    font-size: 14px;
+                    i {
+                        color: $primary-color;
+                    }
+                    + li {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+        .bixol-insta-widget {
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                li {
+                    position: relative; 
+                    padding-right: 10px; 
+                    padding-bottom: 10px;
+                    a {
+                        position: absolute;
+                        top: 0; 
+                        left: 0; 
+                        width: calc(100% - 10px);
+                        height: calc(100% - 10px);
+                        display: flex; 
+                        align-items: center; 
+                        justify-content: center;
+                        color: $white-color; 
+                        background-color: rgba(0,0,0,0.7);
+                        opacity: 0;
+                        transition: $transition;
+                    }
+                    &:hover {
+                        a {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            @include medium-screen {
+                max-width: 270px;
+            }
+        }
+    }
+    .footer-copyright {
+        padding: 18px 0;
+        text-align: center;
+        background-color: #15265b;
+        p {
+            font-family: $heading-font; 
+            color: $white-color; 
+            font-size: 14px; 
+            a {
+                color: $secondary-color;
+            }
+        }
+    }
+}
+
+
+/*************** Hmoe 4 Footer ******************/ 
+.h4-footer {
+    background-color: $black-color;
+    .bixol-footer-widget {
+        h4 {
+            span {
+                color: $home4-primary;
+            }
+        }
+        p {
+            color: #c2d5e7; 
+        }
+        .bixol-footer-form {
+            form {
+                input[type="email"] {
+                    background-color: #1a1a1a; 
+                }
+                button {
+                    background-color: $home4-secondary;
+                }
+            }
+            
+        }
+        .bixol-footer-address {
+            ul {
+                li {
+                    i {
+                        color: $home4-secondary;
+                    }
+                }
+            }
+        }
+    }
+    .footer-copyright {
+        background-color: #0e0e0e; 
+        p {
+            color: #c2d5e7;
+            a {
+                color: $home4-secondary;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+
+/***************** H5 Footer ****************/ 
+.h5-footer {
+    background-color: $black-color;
+    .bixol-footer-widget {
+        h4 {
+            span {
+                color: $home5-primary;
+            }
+        }
+        .bixol-footer-form {
+            form {
+                input[type="email"] {
+                    background-color: #1a1a1a;
+                } 
+                button {
+                    background-color: #353535;
+                }  
+            }
+        }
+        .bixol-footer-address {
+            ul {
+                li {
+                    align-items: flex-start;
+                    i {
+                        color: $home5-primary;
+                        transform: translateY(6px);
+                    }
+                }
+            }
+        }
+    }
+
+
+    .footer-copyright {
+        background-color: #1b1b1b;
+        p {
+            color: #c2d5e7;
+            a {
+                color: $home5-primary;
+            }
+        }
+    }
+}
+
+/************ Home6 Footer ***************/ 
+.h6-footer {
+    background-color: #0a1957; 
+    padding-top: 100px;
+    .bixol-footer-widget {
+        .footer-logo {
+            width: 130px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        h4 {
+            margin-bottom: 40px;
+            position: relative; 
+            &::after {
+                content: ''; 
+                position: absolute; 
+                bottom: -12px; 
+                left: 0; 
+                width: 30px; 
+                height: 3px; 
+                background-color: $home6-secondary;
+            }
+        }
+        p {
+            color: $white-color;
+        }
+        .bixol-footer-address {
+            ul {
+                li {
+                    color: #f4f4f4;
+                    align-items: flex-start;
+                    i {
+                        color: #006ece;
+                        transform: translateY(5px);
+                    }
+                }
+            }
+        }
+        .latest-blog {
+            display: flex; 
+            align-items: center; 
+            + .latest-blog {
+                margin-top: 20px;
+            }
+            .thumb-wrapper {
+                .thumb {
+                    overflow: hidden; 
+                    border-radius: 4px;
+                    img {
+                        transition: $transition;
+                        width: 100px;
+                        transform: scale(1.03);
+                    }
+                }
+            }
+            .blog-content {
+                margin-left: 15px;
+                h6 {
+                    font-size: 16px;
+                    color: $white-color;
+                }
+                .blog-meta {
+                    margin-top: 10px;
+                    span {
+                        color: $white-color;
+                        font-size: 10px;
+                        i {
+                            margin-right: 6px;
+                        }
+                        + span {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+            &:hover {
+                .thumb {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+        .bixol-footer-form {
+            form {
+                input[type="email"] {
+                    background-color: #26346a;
+                }
+                button {
+                    background-color: $home6-secondary;
+                    color: $home6-heading-color;
+                }
+            }
+        }
+        .bixol-footer-social {
+            a {
+                background-color: #26346a;
+                color: $white-color;
+                font-size: 14px;
+                width: 25px; 
+                height: 25px; 
+                text-align: center; 
+                line-height: 25px;
+                border-radius: 50%;
+                margin-right: 6px;
+            }
+        }
+    }
+}
+
+/********** Footer Style 7 **********/ 
+.footer-style-7 {
+    background-color: #00061e;
+    .bixol-footer-widget {
+        h4 {
+            span {
+                color: $home7-primary;
+            }
+        }
+        p {
+            color: #bdbdbd;
+        }
+        .bixol-footer-form {
+            form {
+                button {
+                    background-color: $home7-primary; 
+                    color: #1e2331;
+                }
+            }
+        }
+        .bixol-footer-address {
+            ul {
+                li {
+                    color: #bdbdbd;
+                    i {
+                        color: #006ece;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+/* Breadcrumb Section */
+.bixol-breadcrumb {
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center;
+    padding: 105px 0;
+    position: relative; 
+    z-index: 1;
+    &::before {
+        content: ''; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%;
+        background-color: rgba(3, 0, 20, 0.3); 
+        z-index: -1;
+    }
+    .breadcrumb-object {
+        position: absolute; 
+        top: 30px; 
+        right: 160px;
+        width: 100px;
+    }
+    .breadcrumb-content {
+        text-align: center;
+        h1 {
+            color: $white-color;
+        }
+        a {
+            color: $white-color;
+            font-family: $heading-font;
+            font-weight: 500;
+            transition: $transition;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+        span {
+            color: $white-color;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+// Template Font Name
+$template-font: 'Rubik', sans-serif;
+$heading-font: 'Poppins', sans-serif;
+$nunito-sans: 'Nunito Sans', sans-serif;
+$roboto-font: 'Roboto', sans-serif;
+
+// Template Color Name
+$primary-color: #0431b8; 
+$ligh-primary: #073ad3e1;
+$secondary-color: #22d3ee;
+$heading-color: #082680;
+$info-bg: #02154e;
+$paragraph-color: #3a4268;
+$white-color: #ffffff;
+$black-color: #000000;
+$border-color: #eaeaea;
+$shine-gradient: linear-gradient(to right,transparent,rgba(255,255,255,.4),transparent);
+$box-shadow: 0px 0px 43px 0px rgba(12, 12, 12, 0.16);
+$light-shadow: 0px 0px 20px 0px rgba(12, 12, 12, 0.16);
+$home3-primary: #000e39;
+$home4-primary: #8cd102;
+$home4-secondary: #007cfb;
+$h4-paragraph: #666666;
+$home5-primary: #267ff9;
+$home5-secondary: #494949;
+$h5-peragraph: #555555;
+$home6-primary: #628dfb;
+$home6-secondary: #ffd532; 
+$home6-heading-color: #001c8f;
+$home6-paragraph: #5a6079;
+$background-image: linear-gradient(90deg, #22d3ee 0%, #ffffff 100%);
+$home7-primary: #ffce00; 
+$home7-secondary: #0022a0;
+
+
+// Social Media Color
+$facebook: #3b5999;
+$twitter: #55acee;
+$dribbble: #ea4c89;
+$behance: #cfd7fa;
+$google-plus: #dd4b39;
+$linkedin: #0077B5;
+$instagram: #e4405f;
+
+// Google Font
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+// Transition
+$transition: all .3s ease-in;
