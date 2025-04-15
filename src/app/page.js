@@ -38,19 +38,19 @@ const Dashboard = () => {
 
 
   const fetchData = () => {
-    fetch("http://localhost:5000/api/clients")
+    fetch("https://flushserver.onrender.com/api/clients")
       .then(res => res.json())
       .then(data => setClients(data));
 
-    fetch("http://localhost:5000/api/bookings")
+    fetch("https://flushserver.onrender.com/api/bookings")
       .then(res => res.json())
       .then(data => setBookings(data));
 
-    fetch("http://localhost:5000/api/messages")
+    fetch("https://flushserver.onrender.com/api/messages")
       .then(res => res.json())
       .then(data => setMessages(data));
 
-    fetch("http://localhost:5000/api/services")
+    fetch("https://flushserver.onrender.com/api/services")
       .then(res => res.json())
       .then(data => setServices(data));
   };
@@ -58,7 +58,7 @@ const Dashboard = () => {
 
 
   const fetchBookings = () => {
-    fetch("http://localhost:5000/api/bookings")
+    fetch("https://flushserver.onrender.com/api/bookings")
       .then(res => res.json())
       .then(data => setBookings(data));
   };
@@ -85,7 +85,7 @@ const Dashboard = () => {
     console.log("Updating status for:", id, "New Status:", newStatus);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+      const response = await fetch(`https://flushserver.onrender.com/api/bookings/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: newStatus }),
@@ -127,7 +127,7 @@ const Dashboard = () => {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/bookings/stats");
+      const response = await fetch("https://flushserver.onrender.com/api/bookings/stats");
       const data = await response.json();
       setStats(data); // Update state
     } catch (error) {
