@@ -4,17 +4,17 @@ import { useState, useEffect } from "react";
 
 import { getBookings, deleteBooking, deleteMessage, deleteClient, deleteService } from "./api/api";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Table, TableHeader, TableRow, TableCell, TableBody } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Card, CardContent } from "../components/ui/card";
+import { Table, TableHeader, TableRow, TableCell, TableBody } from "../components/ui/table";
+import { Button } from "../components/ui/button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs";
 import { MessageSquare, Users, Calendar, Briefcase, Trash, Pencil } from "lucide-react";
 import {
   AlertDialog, AlertDialogTitle, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogFooter, AlertDialogAction, AlertDialogDescription,
   AlertDialogCancel
-} from "@/components/ui/alert-dialog";
-import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
-
+} from "../components/ui/alert-dialog";
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "../components/ui/select";
+import { SignedIn, SignedOut, SignIn } from "@clerk/nextjs";
 
 
 
@@ -143,7 +143,8 @@ const Dashboard = () => {
 
 
   return (
-
+<>
+<SignedIn>
     <div className={darkMode ? "dark bg-gray-900 text-white p-6" : "bg-white text-gray-900 p-6"}>
       <h1 className="text-2xl font-bold mb-4">Flush Cleaning Dashboard</h1>
       {/* Toggle Button */}
@@ -397,6 +398,11 @@ const Dashboard = () => {
 
       </Tabs>
     </div>
+</SignedIn>
+<SignedOut>
+<SignIn path="/sign-in" routing="path" />
+    </SignedOut>
+    </>
   );
 };
 
