@@ -19,7 +19,6 @@ import { UserButton, SignOutButton } from '@clerk/nextjs';
 import { Ring } from 'ldrs/react'
 import 'ldrs/react/Ring.css'
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 
 const Dashboard = () => {
   const [clients, setClients] = useState([]);
@@ -58,15 +57,15 @@ const Dashboard = () => {
         fetch("/api/clients"),
         fetch("/api/bookings"),
         fetch("/api/messages"),
-
+     
       ]);
-      const [clientsData, bookingsData, messagesData,] = await Promise.all([
+      const [clientsData, bookingsData, messagesData, ] = await Promise.all([
         clientsRes.json(), bookingsRes.json(), messagesRes.json(),
       ]);
       setClients(clientsData);
       setBookings(bookingsData);
       setMessages(messagesData);
-
+      
     } catch (err) {
       setError("Failed to load data.");
       console.error(err);
@@ -197,218 +196,218 @@ const Dashboard = () => {
                 ))}
 
               </div>
-              <Suspense>
-                <Tabs value={currentTab} onValueChange={handleTabChange}>
-                  <TabsList className="flex flex-wrap gap-2 mb-4">
-                    <TabsTrigger value="clients"><Users className="flex items-center gap-1" /> Clients</TabsTrigger>
-                    <TabsTrigger value="bookings"><Calendar className="flex items-center gap-1" /> Bookings</TabsTrigger>
-                    <TabsTrigger value="messages"><MessageSquare className="flex items-center gap-1" /> Messages</TabsTrigger>
-                    {/* <TabsTrigger value="services"><Briefcase className="mr-2" /> Services</TabsTrigger> */}
-                  </TabsList>
 
-                  {/* Clients Section */}
-                  <TabsContent value="clients">
-                    <Card>
-                      <CardContent className="overflow-auto">
-                        <Table className="min-w-[600px]">
-                          <TableHeader className="font-bold text-base">
-                            <TableRow>
-                              <TableCell>Name</TableCell>
-                              <TableCell>Email</TableCell>
-                              <TableCell>Phone</TableCell>
-                              <TableCell>Actions</TableCell>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {clients.map(client => (
-                              <TableRow key={client.id}>
-                                <TableCell>{client.name}</TableCell>
-                                <TableCell>{client.email}</TableCell>
-                                <TableCell>{client.phone}</TableCell>
-                                <TableCell>
-                                  {/* <Button variant="outline" className="mr-2">
+              <Tabs value={currentTab} onValueChange={handleTabChange}>
+                <TabsList className="flex flex-wrap gap-2 mb-4">
+                  <TabsTrigger value="clients"><Users className="flex items-center gap-1" /> Clients</TabsTrigger>
+                  <TabsTrigger value="bookings"><Calendar className="flex items-center gap-1" /> Bookings</TabsTrigger>
+                  <TabsTrigger value="messages"><MessageSquare className="flex items-center gap-1" /> Messages</TabsTrigger>
+                  {/* <TabsTrigger value="services"><Briefcase className="mr-2" /> Services</TabsTrigger> */}
+                </TabsList>
+
+                {/* Clients Section */}
+                <TabsContent value="clients">
+                  <Card>
+                    <CardContent className="overflow-auto">
+                      <Table className="min-w-[600px]">
+                        <TableHeader className="font-bold text-base">
+                          <TableRow>
+                            <TableCell>Name</TableCell>
+                            <TableCell>Email</TableCell>
+                            <TableCell>Phone</TableCell>
+                            <TableCell>Actions</TableCell>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {clients.map(client => (
+                            <TableRow key={client.id}>
+                              <TableCell>{client.name}</TableCell>
+                              <TableCell>{client.email}</TableCell>
+                              <TableCell>{client.phone}</TableCell>
+                              <TableCell>
+                                {/* <Button variant="outline" className="mr-2">
                           <Pencil size={16} />
                         </Button> */}
-                                  <AlertDialog>
-                                    <AlertDialogTrigger asChild>
-                                      <Button variant="destructive" onClick={() => setSelectedClient(client._id)}>
-                                        <Trash size={16} />
-                                      </Button>
-                                    </AlertDialogTrigger>
-                                    <AlertDialogContent>
-                                      <AlertDialogHeader>
-                                        <AlertDialogTitle>
-                                          Are you sure you want to delete this client?
-                                        </AlertDialogTitle>
-                                        <AlertDialogDescription>
-                                          This action cannot be undone. This will permanently delete
-                                          and remove them from the database.
-                                        </AlertDialogDescription>
-                                      </AlertDialogHeader>
-                                      <AlertDialogFooter>
-                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                        <AlertDialogAction onClick={() => handleDeleteClient(client._id)}>Confirm</AlertDialogAction>
+                                <AlertDialog>
+                                  <AlertDialogTrigger asChild>
+                                    <Button variant="destructive" onClick={() => setSelectedClient(client._id)}>
+                                      <Trash size={16} />
+                                    </Button>
+                                  </AlertDialogTrigger>
+                                  <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                      <AlertDialogTitle>
+                                        Are you sure you want to delete this client?
+                                      </AlertDialogTitle>
+                                      <AlertDialogDescription>
+                                        This action cannot be undone. This will permanently delete
+                                        and remove them from the database.
+                                      </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                      <AlertDialogAction onClick={() => handleDeleteClient(client._id)}>Confirm</AlertDialogAction>
 
-                                        {/* <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                      {/* <AlertDialogCancel>Cancel</AlertDialogCancel>
                               <Button variant="destructive" onClick={() => handleDelete(selectedBooking)}>Delete</Button> */}
-                                      </AlertDialogFooter>
-                                    </AlertDialogContent>
-                                  </AlertDialog>
+                                    </AlertDialogFooter>
+                                  </AlertDialogContent>
+                                </AlertDialog>
 
-                                </TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                      </CardContent>
-                    </Card>
-                  </TabsContent>
-
-                  {/* Bookings Section */}
-                  <TabsContent value="bookings">
-                    <Card>
-                      <CardContent className="overflow-auto">
-                        <Table className="min-w-[900px]">
-                          <TableHeader className="font-bold text-base">
-                            <TableRow>
-                              <TableCell>Client</TableCell>
-                              <TableCell>Contact(Email/Phone)</TableCell>
-                              <TableCell>Date</TableCell>
-                              <TableCell>Service</TableCell>
-                              <TableCell>Status</TableCell>
-                              <TableCell>Address</TableCell>
-                              <TableCell>Message</TableCell>
-                              <TableCell>Actions</TableCell>
+                              </TableCell>
                             </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {bookings.map(booking => (
-                              <TableRow key={booking._id}>
-                                <TableCell>{booking.client?.name || "Unknown"}</TableCell>
-                                <TableCell>{booking.client?.email || "No Email"} / {booking.client?.phone || "No Phone"}</TableCell>
-                                {/* <TableCell>{booking.client?.phone || "No Phone"}</TableCell> */}
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
 
-                                <TableCell>{new Date(booking.createdAt).toLocaleDateString()}</TableCell>
-                                <TableCell>{booking.service}</TableCell>
+                {/* Bookings Section */}
+                <TabsContent value="bookings">
+                  <Card>
+                    <CardContent className="overflow-auto">
+                      <Table className="min-w-[900px]">
+                        <TableHeader className="font-bold text-base">
+                          <TableRow>
+                            <TableCell>Client</TableCell>
+                            <TableCell>Contact(Email/Phone)</TableCell>
+                            <TableCell>Date</TableCell>
+                            <TableCell>Service</TableCell>
+                            <TableCell>Status</TableCell>
+                            <TableCell>Address</TableCell>
+                            <TableCell>Message</TableCell>
+                            <TableCell>Actions</TableCell>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {bookings.map(booking => (
+                            <TableRow key={booking._id}>
+                              <TableCell>{booking.client?.name || "Unknown"}</TableCell>
+                              <TableCell>{booking.client?.email || "No Email"} / {booking.client?.phone || "No Phone"}</TableCell>
+                              {/* <TableCell>{booking.client?.phone || "No Phone"}</TableCell> */}
 
-                                <TableCell>
-                                  <Select onValueChange={(value) => {
-                                    console.log("Booking ID:", booking.id, "New Status:", value);
-                                    handleStatusChange(booking._id, value)
-                                  }}
-                                  >
-                                    <SelectTrigger>
-                                      <SelectValue placeholder={booking.status} />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                      <SelectItem value="Pending">Pending</SelectItem>
-                                      <SelectItem value="Confirmed">Confirmed</SelectItem>
+                              <TableCell>{new Date(booking.createdAt).toLocaleDateString()}</TableCell>
+                              <TableCell>{booking.service}</TableCell>
 
-                                      <SelectItem value="Completed">Completed</SelectItem>
-                                      <SelectItem value="Cancelled">Cancelled</SelectItem>
-                                    </SelectContent>
-                                  </Select>
-                                </TableCell>
+                              <TableCell>
+                                <Select onValueChange={(value) => {
+                                  console.log("Booking ID:", booking.id, "New Status:", value);
+                                  handleStatusChange(booking._id, value)
+                                }}
+                                >
+                                  <SelectTrigger>
+                                    <SelectValue placeholder={booking.status} />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="Pending">Pending</SelectItem>
+                                    <SelectItem value="Confirmed">Confirmed</SelectItem>
 
-                                <TableCell>{booking.address}</TableCell>
-                                <TableCell>{booking.message}</TableCell>
-                                <TableCell>
-                                  <AlertDialog>
-                                    <AlertDialogTrigger asChild>
-                                      <Button variant="destructive" onClick={() => setSelectedBooking(booking._id)}>
-                                        <Trash size={16} />
-                                      </Button>
-                                    </AlertDialogTrigger>
-                                    <AlertDialogContent>
-                                      <AlertDialogHeader>
-                                        <AlertDialogTitle>
-                                          Are you sure you want to delete this booking?
-                                        </AlertDialogTitle>
-                                        <AlertDialogDescription>
-                                          This action cannot be undone. This will permanently delete
-                                          and remove it from the database.
-                                        </AlertDialogDescription>
-                                      </AlertDialogHeader>
-                                      <AlertDialogFooter>
-                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                        <AlertDialogAction onClick={() => handleDeleteBooking(booking._id)}>Confirm</AlertDialogAction>
+                                    <SelectItem value="Completed">Completed</SelectItem>
+                                    <SelectItem value="Cancelled">Cancelled</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              </TableCell>
 
-                                        {/* <AlertDialogCancel>Cancel</AlertDialogCancel>
+                              <TableCell>{booking.address}</TableCell>
+                              <TableCell>{booking.message}</TableCell>
+                              <TableCell>
+                                <AlertDialog>
+                                  <AlertDialogTrigger asChild>
+                                    <Button variant="destructive" onClick={() => setSelectedBooking(booking._id)}>
+                                      <Trash size={16} />
+                                    </Button>
+                                  </AlertDialogTrigger>
+                                  <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                      <AlertDialogTitle>
+                                        Are you sure you want to delete this booking?
+                                      </AlertDialogTitle>
+                                      <AlertDialogDescription>
+                                        This action cannot be undone. This will permanently delete
+                                        and remove it from the database.
+                                      </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                      <AlertDialogAction onClick={() => handleDeleteBooking(booking._id)}>Confirm</AlertDialogAction>
+
+                                      {/* <AlertDialogCancel>Cancel</AlertDialogCancel>
                               <Button variant="destructive" onClick={() => handleDelete(selectedBooking)}>Delete</Button> */}
-                                      </AlertDialogFooter>
-                                    </AlertDialogContent>
-                                  </AlertDialog>
-                                </TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                      </CardContent>
-                    </Card>
-                  </TabsContent>
-
-
-                  {/* Messages Section */}
-                  <TabsContent value="messages">
-                    <Card>
-                      <CardContent className="overflow-auto">
-                        <Table className="min-w-[600px]">
-                          <TableHeader className="font-bold text-base">
-                            <TableRow>
-                              <TableCell>Client</TableCell>
-                              <TableCell>Contact (Email/Phone)</TableCell>
-                              <TableCell>Service</TableCell>
-                              <TableCell>Message</TableCell>
-                              <TableCell>Actions</TableCell>
+                                    </AlertDialogFooter>
+                                  </AlertDialogContent>
+                                </AlertDialog>
+                              </TableCell>
                             </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {messages.map((msg) => (
-                              <TableRow key={msg._id}>
-                                <TableCell>{msg.client?.name || "Unknown"}</TableCell>
-                                <TableCell>
-                                  {msg.client?.email || "No Email"} / {msg.client?.phone || "No Phone"}
-                                </TableCell>
-                                <TableCell>{msg.service}</TableCell>
-                                <TableCell>{msg.message}</TableCell>
-                                <TableCell>
-                                  <AlertDialog>
-                                    <AlertDialogTrigger asChild>
-                                      <Button variant="destructive" onClick={() => setSelectedMessage(msg._id)}>
-                                        <Trash size={16} />
-                                      </Button>
-                                    </AlertDialogTrigger>
-                                    <AlertDialogContent>
-                                      <AlertDialogHeader>
-                                        <AlertDialogTitle>
-                                          Are you sure you want to delete this message?
-                                        </AlertDialogTitle>
-                                        <AlertDialogDescription>
-                                          This action cannot be undone. This will permanently delete
-                                          and remove it from the database.
-                                        </AlertDialogDescription>
-                                      </AlertDialogHeader>
-                                      <AlertDialogFooter>
-                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                        <AlertDialogAction onClick={() => handleDeleteMessages(msg._id)}>Confirm</AlertDialogAction>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
 
-                                        {/* <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                {/* Messages Section */}
+                <TabsContent value="messages">
+                  <Card>
+                    <CardContent className="overflow-auto">
+                      <Table className="min-w-[600px]">
+                        <TableHeader className="font-bold text-base">
+                          <TableRow>
+                            <TableCell>Client</TableCell>
+                            <TableCell>Contact (Email/Phone)</TableCell>
+                            <TableCell>Service</TableCell>
+                            <TableCell>Message</TableCell>
+                            <TableCell>Actions</TableCell>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {messages.map((msg) => (
+                            <TableRow key={msg._id}>
+                              <TableCell>{msg.client?.name || "Unknown"}</TableCell>
+                              <TableCell>
+                                {msg.client?.email || "No Email"} / {msg.client?.phone || "No Phone"}
+                              </TableCell>
+                              <TableCell>{msg.service}</TableCell>
+                              <TableCell>{msg.message}</TableCell>
+                              <TableCell>
+                                <AlertDialog>
+                                  <AlertDialogTrigger asChild>
+                                    <Button variant="destructive" onClick={() => setSelectedMessage(msg._id)}>
+                                      <Trash size={16} />
+                                    </Button>
+                                  </AlertDialogTrigger>
+                                  <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                      <AlertDialogTitle>
+                                        Are you sure you want to delete this message?
+                                      </AlertDialogTitle>
+                                      <AlertDialogDescription>
+                                        This action cannot be undone. This will permanently delete
+                                        and remove it from the database.
+                                      </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                      <AlertDialogAction onClick={() => handleDeleteMessages(msg._id)}>Confirm</AlertDialogAction>
+
+                                      {/* <AlertDialogCancel>Cancel</AlertDialogCancel>
                               <Button variant="destructive" onClick={() => handleDelete(selectedBooking)}>Delete</Button> */}
-                                      </AlertDialogFooter>
-                                    </AlertDialogContent>
-                                  </AlertDialog>
-                                </TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                      </CardContent>
-                    </Card>
-                  </TabsContent>
+                                    </AlertDialogFooter>
+                                  </AlertDialogContent>
+                                </AlertDialog>
+                              </TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
 
 
-                  {/* Services Section */}
-                  {/* <TabsContent value="services">
+                {/* Services Section */}
+                {/* <TabsContent value="services">
           <Card>
             <CardContent>
               {services.map(service => (
@@ -423,8 +422,7 @@ const Dashboard = () => {
           </Card>
         </TabsContent> */}
 
-                </Tabs>
-              </Suspense>
+              </Tabs>
             </div>
         }
       </SignedIn>
