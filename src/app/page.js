@@ -18,7 +18,8 @@ import { SignedIn, SignedOut, SignIn } from "@clerk/nextjs";
 import { UserButton, SignOutButton } from '@clerk/nextjs';
 import { Ring } from 'ldrs/react'
 import 'ldrs/react/Ring.css'
-// import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+
 
 const Dashboard = () => {
   const [clients, setClients] = useState([]);
@@ -30,15 +31,15 @@ const Dashboard = () => {
   const [selectedMessage, setSelectedMessage] = useState(null);
   const [selectedClient, setSelectedClient] = useState(null);
 
-  // const router = useRouter();
-  // const searchParams = useSearchParams();
-  // const currentTab = searchParams.get("tab") || "clients";
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const currentTab = searchParams.get("tab") || "clients";
 
-  // const handleTabChange = (value) => {
-  //   const params = new URLSearchParams(searchParams);
-  //   params.set("tab", value);
-  //   router.replace(`?${params.toString()}`);
-  // };
+  const handleTabChange = (value) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("tab", value);
+    router.replace(`?${params.toString()}`);
+  };
 
   useEffect(() => {
     fetchData();
@@ -196,8 +197,8 @@ const Dashboard = () => {
                 ))}
 
               </div>
-
-              <Tabs defaultValue="clients" className="w-full">
+      
+              <Tabs value={currentTab} onValueChange={handleTabChange}>
                 <TabsList className="flex flex-wrap gap-2 mb-4">
                   <TabsTrigger value="clients"><Users className="flex items-center gap-1" /> Clients</TabsTrigger>
                   <TabsTrigger value="bookings"><Calendar className="flex items-center gap-1" /> Bookings</TabsTrigger>
@@ -423,6 +424,9 @@ const Dashboard = () => {
         </TabsContent> */}
 
               </Tabs>
+              
+
+              
             </div>
         }
       </SignedIn>
