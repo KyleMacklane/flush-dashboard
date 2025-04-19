@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://flushserver.onrender.com/api"; 
+const API_URL = "/api/"; 
 
 // ✅ Clients API
 export const getClients = async () => {
